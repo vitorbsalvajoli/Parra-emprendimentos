@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parra Empreendimentos - Encontre seu terreno ideal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-tree"></i></span>
+                <span class="logo-text">Parra<span class="logo-highlight">Empreendimentos</span></span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Início</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <li><a href="galeria.html" class="nav-link">Galeria</a></li>
+                <li><a href="imoveis.html" class="nav-link">Imóveis</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Encontre o imóvel dos sonhos conosco</h1>
+            <p class="hero-subtitle">Especialistas em terrenos exclusivos para você construir seu legado</p>
+            
+            <!-- Search Box -->
+            <div class="search-box">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar terrenos por cidade, bairro ou referência..." id="searchInput">
+                </div>
+                <button class="search-btn" onclick="realizarBusca()">
+                    <i class="fas fa-search"></i> Pesquisar
+                </button>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Terrenos Disponíveis</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Anos de Experiência</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Clientes Satisfeitos</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Role para baixo</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Terrenos em Destaque</h2>
+                <p class="section-subtitle">Confira algumas das melhores oportunidades disponíveis</p>
+            </div>
+            
+            <div class="properties-grid">
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=300&fit=crop" alt="Terreno Residencial">
+                        <span class="property-tag">Destaque</span>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Loteamento Jardim das Palmeiras</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Setor Bueno, Goiânia - GO</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-ruler-combined"></i> 450m²</span>
+                            <span><i class="fas fa-dollar-sign"></i> R$ 380.000</span>
+                        </div>
+                        <a href="imoveis.html" class="property-btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=400&h=300&fit=crop" alt="Terreno Comercial">
+                        <span class="property-tag">Oportunidade</span>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Terreno Comercial Av. Goiás</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Centro, Goiânia - GO</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-ruler-combined"></i> 600m²</span>
+                            <span><i class="fas fa-dollar-sign"></i> R$ 750.000</span>
+                        </div>
+                        <a href="imoveis.html" class="property-btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab60003559f1?w=400&h=300&fit=crop" alt="Terreno em Condomínio">
+                        <span class="property-tag">Condomínio</span>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Condomínio Reserva do Lago</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Jardim Goiás, Goiânia - GO</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-ruler-combined"></i> 800m²</span>
+                            <span><i class="fas fa-dollar-sign"></i> R$ 1.200.000</span>
+                        </div>
+                        <a href="imoveis.html" class="property-btn">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-cta">
+                <a href="imoveis.html" class="cta-btn">Ver Todos os Terrenos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Por que escolher a Parra Empreendimentos?</h2>
+                <p class="section-subtitle">Mais do que vender terrenos, construímos relacionamentos</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="feature-title">Documentação Regularizada</h3>
+                    <p class="feature-description">Todos os nossos terrenos possuem documentação 100% regularizada e pronta para transferência.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="feature-title">Atendimento Personalizado</h3>
+                    <p class="feature-description">Nossa equipe está pronta para entender suas necessidades e encontrar o terreno perfeito.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Melhor Investimento</h3>
+                    <p class="feature-description">Trabalhamos com as melhores oportunidades de valorização imobiliária da região.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="feature-title">Variedade de Opções</h3>
+                    <p class="feature-description">De terrenos residenciais a comerciais, encontramos a opção ideal para seu projeto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Pronto para realizar seu sonho?</h2>
+                <p class="cta-text">Entre em contato conosco e descubra as melhores oportunidades de terrenos na região.</p>
+                <div class="cta-buttons">
+                    <a href="contato.html" class="cta-btn primary">Fale Conosco</a>
+                    <a href="imoveis.html" class="cta-btn secondary">Ver Terrenos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-tree"></i></span>
+                        <span class="logo-text">Parra<span class="logo-highlight">Empreendimentos</span></span>
+                    </div>
+                    <p class="footer-description">Especialistas em terrenos exclusivos. Construa seu legado com quem entende do assunto.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="imoveis.html">Imóveis</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> (62) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@parraempreendimentos.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. T-4, 1234 - Setor Bueno, Goiânia - GO</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p>Receba novidades e oportunidades exclusivas.</p>
+                    <form class="newsletter-form" onsubmit="inscreverNewsletter(event)">
+                        <input type="email" placeholder="Seu e-mail" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Parra Empreendimentos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

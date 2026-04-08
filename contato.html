@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Parra Empreendimentos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-tree"></i></span>
+                <span class="logo-text">Parra<span class="logo-highlight">Empreendimentos</span></span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <li><a href="galeria.html" class="nav-link">Galeria</a></li>
+                <li><a href="imoveis.html" class="nav-link">Imóveis</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contato.html" class="nav-link active">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <h1 class="page-title">Fale Conosco</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Início</a>
+                <span>/</span>
+                <span>Contato</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2 class="section-title">Envie uma Mensagem</h2>
+                    <p class="section-subtitle">Preencha o formulário abaixo e entraremos em contato o mais breve possível.</p>
+                    
+                    <form class="contact-form" id="contactForm" onsubmit="enviarFormulario(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo *</label>
+                                <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone *</label>
+                                <input type="tel" id="telefone" name="telefone" required placeholder="(62) 99999-9999" oninput="mascararTelefone(this)">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="assunto">Assunto *</label>
+                                <select id="assunto" name="assunto" required>
+                                    <option value="">Selecione um assunto</option>
+                                    <option value="interesse">Tenho interesse em um terreno</option>
+                                    <option value="duvida">Dúvidas sobre terrenos</option>
+                                    <option value="agendamento">Agendar visita</option>
+                                    <option value="parceria">Proposta de parceria</option>
+                                    <option value="outros">Outros assuntos</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem *</label>
+                            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Digite sua mensagem..."></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Desejo receber novidades e oportunidades exclusivas por e-mail</label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-wrapper">
+                    <div class="contact-info-card">
+                        <h3>Informações de Contato</h3>
+                        <p>Entre em contato conosco através dos canais abaixo:</p>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Telefone</h4>
+                                <p>(62) 99999-9999</p>
+                                <p>(62) 3333-3333</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>E-mail</h4>
+                                <p>contato@parraempreendimentos.com.br</p>
+                                <p>comercial@parraempreendimentos.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Endereço</h4>
+                                <p>Av. T-4, 1234 - Setor Bueno</p>
+                                <p>Goiânia - GO, 74230-035</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Horário de Atendimento</h4>
+                                <p>Segunda a Sexta: 8h às 18h</p>
+                                <p>Sábado: 8h às 12h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-card">
+                        <h3>Redes Sociais</h3>
+                        <p>Siga-nos nas redes sociais e fique por dentro das novidades:</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="social-link whatsapp" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossa Localização</h2>
+                <p class="section-subtitle">Visite nosso escritório e conheça nossas oportunidades</p>
+            </div>
+        </div>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.536896284063!2d-49.2647!3d-16.6869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDQxJzEyLjgiUyA0OcKwMTUnNTIuOSJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <p class="section-subtitle">Tire suas dúvidas mais comuns</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quais documentos são necessários para comprar um terreno?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Para a compra de um terreno, são necessários: RG, CPF, comprovante de residência, comprovante de renda e certidão de estado civil. Para financiamento, podem ser solicitados documentos adicionais.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>É possível financiar a compra de um terreno?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! Trabalhamos com as principais instituições financeiras e podemos ajudar você a encontrar a melhor opção de financiamento para seu terreno. As condições variam de acordo com o perfil do cliente.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Como funciona o processo de compra?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O processo é simples: 1) Escolha do terreno; 2) Proposta e negociação; 3) Análise documental; 4) Assinatura do contrato; 5) Registro em cartório. Nossa equipe acompanha todas as etapas.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Posso agendar uma visita aos terrenos?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Com certeza! Entre em contato conosco por telefone, WhatsApp ou através do formulário acima para agendar uma visita. Nossa equipe estará pronta para lhe atender e mostrar todos os detalhes do terreno de seu interesse.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quais formas de pagamento são aceitas?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Aceitamos diversas formas de pagamento: à vista, financiamento bancário, consórcio, permuta (avaliar caso a caso) e parcelamento direto. Entre em contato para conhecer as condições disponíveis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-tree"></i></span>
+                        <span class="logo-text">Parra<span class="logo-highlight">Empreendimentos</span></span>
+                    </div>
+                    <p class="footer-description">Especialistas em terrenos exclusivos. Construa seu legado com quem entende do assunto.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="imoveis.html">Imóveis</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> (62) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@parraempreendimentos.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. T-4, 1234 - Setor Bueno, Goiânia - GO</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p>Receba novidades e oportunidades exclusivas.</p>
+                    <form class="newsletter-form" onsubmit="inscreverNewsletter(event)">
+                        <input type="email" placeholder="Seu e-mail" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Parra Empreendimentos. Todos os direitos reservados.</p>
+            </div>
+        </div>

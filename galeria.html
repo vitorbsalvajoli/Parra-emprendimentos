@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Parra Empreendimentos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-tree"></i></span>
+                <span class="logo-text">Parra<span class="logo-highlight">Empreendimentos</span></span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <li><a href="galeria.html" class="nav-link active">Galeria</a></li>
+                <li><a href="imoveis.html" class="nav-link">Imóveis</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <h1 class="page-title">Galeria de Imóveis</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Início</a>
+                <span>/</span>
+                <span>Galeria</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Filter -->
+    <section class="gallery-filter-section">
+        <div class="container">
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="residencial">Residencial</button>
+                <button class="filter-btn" data-filter="comercial">Comercial</button>
+                <button class="filter-btn" data-filter="condominio">Condomínio</button>
+                <button class="filter-btn" data-filter="rural">Rural</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item" data-category="residencial">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop" alt="Terreno Residencial 1">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Residencial</span>
+                            <h3>Loteamento Jardim das Palmeiras</h3>
+                            <p>Setor Bueno, Goiânia - GO</p>
+                            <a href="imoveis.html" class="gallery-btn">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item" data-category="comercial">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=600&h=400&fit=crop" alt="Terreno Comercial">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Comercial</span>
+                            <h3>Terreno Av. Goiás</h3>
+                            <p>Centro, Goiânia - GO</p>
+                            <a href="imoveis.html" class="gallery-btn">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item" data-category="condominio">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab60003559f1?w=600&h=400&fit=crop" alt="Terreno em Condomínio">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Condomínio</span>
+                            <h3>Condomínio Reserva do Lago</h3>
+                            <p>Jardim Goiás, Goiânia - GO</p>
+                            <a href="imoveis.html" class="gallery-btn">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item" data-category="residencial">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=600&h=400&fit=crop" alt="Terreno Residencial 2">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Residencial</span>
+                            <h3>Loteamento Vista Verde</h3>
+                            <p>Marista, Goiânia - GO</p>
+                            <a href="imoveis.html" class="gallery-btn">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item" data-category="rural">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop" alt="Terreno Rural">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Rural</span>
+                            <h3>Chácara Recanto das Águas</h3>
+                            <p>Zona Rural, Goiânia - GO</p>
+                            <a href="imoveis.html" class="gallery-btn">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item" data-category="condominio">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&h=400&fit=crop" alt="Condomínio de Luxo">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Condomínio</span>
+                            <h3>Condomínio Alphaville</h3>
+                            <p>Senador Canedo - GO</p>
+                            <a href="imoveis.html" class="gallery-btn">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item" data-category="residencial">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=600&h=400&fit=crop" alt="Terreno Residencial 3">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Residencial</span>
+                            <h3>Loteamento Parque das Flores</h3>
+                            <p>Pedro Ludovico, Goiânia - GO</p>
+                            <a href="imoveis.html" class="gallery-btn">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item" data-category="comercial">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop" alt="Terreno Comercial 2">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Comercial</span>
+                            <h3>Terreno Empresarial</h3>
+                            <p>Setor Marista, Goiânia - GO</p>
+                            <a href="imoveis.html" class="gallery-btn">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 9 -->
+                <div class="gallery-item" data-category="residencial">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&h=400&fit=crop" alt="Terreno Residencial 4">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Residencial</span>
+                            <h3>Loteamento Jardins</h3>
+                            <p>Setor Jaó, Goiânia - GO</p>
+                            <a href="imoveis.html" class="gallery-btn">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+        <button class="lightbox-prev" onclick="prevImage()"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-image">
+            <div class="lightbox-info">
+                <span class="lightbox-category" id="lightbox-category"></span>
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-location"></p>
+            </div>
+        </div>
+        <button class="lightbox-next" onclick="nextImage()"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-tree"></i></span>
+                        <span class="logo-text">Parra<span class="logo-highlight">Empreendimentos</span></span>
+                    </div>
+                    <p class="footer-description">Especialistas em terrenos exclusivos. Construa seu legado com quem entende do assunto.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="imoveis.html">Imóveis</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> (62) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@parraempreendimentos.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. T-4, 1234 - Setor Bueno, Goiânia - GO</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p>Receba novidades e oportunidades exclusivas.</p>
+                    <form class="newsletter-form" onsubmit="inscreverNewsletter(event)">
+                        <input type="email" placeholder="Seu e-mail" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Parra Empreendimentos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

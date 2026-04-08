@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imóveis - Parra Empreendimentos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-tree"></i></span>
+                <span class="logo-text">Parra<span class="logo-highlight">Empreendimentos</span></span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <li><a href="galeria.html" class="nav-link">Galeria</a></li>
+                <li><a href="imoveis.html" class="nav-link active">Imóveis</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <h1 class="page-title">Terrenos Disponíveis</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Início</a>
+                <span>/</span>
+                <span>Imóveis</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketplace Section -->
+    <section class="marketplace-section">
+        <div class="container">
+            <!-- Filters Sidebar -->
+            <aside class="filters-sidebar">
+                <div class="filter-header">
+                    <h3><i class="fas fa-filter"></i> Filtros</h3>
+                    <button class="clear-filters" onclick="limparFiltros()">Limpar</button>
+                </div>
+
+                <div class="filter-group">
+                    <label>Tipo de Terreno</label>
+                    <select id="filtroTipo" onchange="filtrarImoveis()">
+                        <option value="">Todos</option>
+                        <option value="residencial">Residencial</option>
+                        <option value="comercial">Comercial</option>
+                        <option value="condominio">Condomínio</option>
+                        <option value="rural">Rural</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Cidade</label>
+                    <select id="filtroCidade" onchange="filtrarImoveis()">
+                        <option value="">Todas</option>
+                        <option value="goiania">Goiânia</option>
+                        <option value="aparecida">Aparecida de Goiânia</option>
+                        <option value="senador">Senador Canedo</option>
+                        <option value="trindade">Trindade</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Bairro</label>
+                    <input type="text" id="filtroBairro" placeholder="Digite o bairro" oninput="filtrarImoveis()">
+                </div>
+
+                <div class="filter-group">
+                    <label>Área Mínima (m²)</label>
+                    <input type="number" id="filtroAreaMin" placeholder="Mínimo" oninput="filtrarImoveis()">
+                </div>
+
+                <div class="filter-group">
+                    <label>Área Máxima (m²)</label>
+                    <input type="number" id="filtroAreaMax" placeholder="Máximo" oninput="filtrarImoveis()">
+                </div>
+
+                <div class="filter-group">
+                    <label>Preço Mínimo</label>
+                    <input type="number" id="filtroPrecoMin" placeholder="R$ Mínimo" oninput="filtrarImoveis()">
+                </div>
+
+                <div class="filter-group">
+                    <label>Preço Máximo</label>
+                    <input type="number" id="filtroPrecoMax" placeholder="R$ Máximo" oninput="filtrarImoveis()">
+                </div>
+
+                <div class="filter-group">
+                    <label>Ordenar por</label>
+                    <select id="filtroOrdenar" onchange="filtrarImoveis()">
+                        <option value="mais-recentes">Mais Recentes</option>
+                        <option value="menor-preco">Menor Preço</option>
+                        <option value="maior-preco">Maior Preço</option>
+                        <option value="maior-area">Maior Área</option>
+                        <option value="menor-area">Menor Área</option>
+                    </select>
+                </div>
+            </aside>
+
+            <!-- Properties Grid -->
+            <main class="marketplace-main">
+                <div class="marketplace-header">
+                    <p class="results-count"><span id="resultadosCount">12</span> terrenos encontrados</p>
+                    <div class="view-options">
+                        <button class="view-btn active" data-view="grid"><i class="fas fa-th-large"></i></button>
+                        <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                    </div>
+                </div>
+
+                <div class="properties-list" id="propertiesList">
+                    <!-- Property 1 -->
+                    <div class="property-item" data-tipo="residencial" data-cidade="goiania" data-bairro="Setor Bueno" data-area="450" data-preco="380000">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=300&fit=crop" alt="Terreno 1">
+                            <span class="property-badge destaque">Destaque</span>
+                            <button class="favorite-btn" onclick="toggleFavorite(this)"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-type">Residencial</div>
+                            <h3 class="property-title">Loteamento Jardim das Palmeiras</h3>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Setor Bueno, Goiânia - GO</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 450m²</span>
+                                <span><i class="fas fa-vector-square"></i> 15x30m</span>
+                                <span><i class="fas fa-compass"></i> Norte/Sul</span>
+                            </div>
+                            <div class="property-price">R$ 380.000</div>
+                            <div class="property-actions">
+                                <a href="#" class="btn-whatsapp" onclick="abrirWhatsApp('Loteamento Jardim das Palmeiras')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <button class="btn-details" onclick="abrirModalProperty(1)">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property 2 -->
+                    <div class="property-item" data-tipo="comercial" data-cidade="goiania" data-bairro="Centro" data-area="600" data-preco="750000">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=400&h=300&fit=crop" alt="Terreno 2">
+                            <span class="property-badge oportunidade">Oportunidade</span>
+                            <button class="favorite-btn" onclick="toggleFavorite(this)"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-type">Comercial</div>
+                            <h3 class="property-title">Terreno Comercial Av. Goiás</h3>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Centro, Goiânia - GO</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 600m²</span>
+                                <span><i class="fas fa-vector-square"></i> 20x30m</span>
+                                <span><i class="fas fa-compass"></i> Leste/Oeste</span>
+                            </div>
+                            <div class="property-price">R$ 750.000</div>
+                            <div class="property-actions">
+                                <a href="#" class="btn-whatsapp" onclick="abrirWhatsApp('Terreno Comercial Av. Goiás')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <button class="btn-details" onclick="abrirModalProperty(2)">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property 3 -->
+                    <div class="property-item" data-tipo="condominio" data-cidade="goiania" data-bairro="Jardim Goiás" data-area="800" data-preco="1200000">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab60003559f1?w=400&h=300&fit=crop" alt="Terreno 3">
+                            <span class="property-badge lancamento">Lançamento</span>
+                            <button class="favorite-btn" onclick="toggleFavorite(this)"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-type">Condomínio</div>
+                            <h3 class="property-title">Condomínio Reserva do Lago</h3>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Jardim Goiás, Goiânia - GO</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 800m²</span>
+                                <span><i class="fas fa-vector-square"></i> 20x40m</span>
+                                <span><i class="fas fa-compass"></i> Norte/Sul</span>
+                            </div>
+                            <div class="property-price">R$ 1.200.000</div>
+                            <div class="property-actions">
+                                <a href="#" class="btn-whatsapp" onclick="abrirWhatsApp('Condomínio Reserva do Lago')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <button class="btn-details" onclick="abrirModalProperty(3)">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property 4 -->
+                    <div class="property-item" data-tipo="residencial" data-cidade="goiania" data-bairro="Marista" data-area="360" data-preco="420000">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=400&h=300&fit=crop" alt="Terreno 4">
+                            <button class="favorite-btn" onclick="toggleFavorite(this)"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-type">Residencial</div>
+                            <h3 class="property-title">Loteamento Vista Verde</h3>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Marista, Goiânia - GO</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 360m²</span>
+                                <span><i class="fas fa-vector-square"></i> 12x30m</span>
+                                <span><i class="fas fa-compass"></i> Leste/Oeste</span>
+                            </div>
+                            <div class="property-price">R$ 420.000</div>
+                            <div class="property-actions">
+                                <a href="#" class="btn-whatsapp" onclick="abrirWhatsApp('Loteamento Vista Verde')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <button class="btn-details" onclick="abrirModalProperty(4)">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property 5 -->
+                    <div class="property-item" data-tipo="rural" data-cidade="goiania" data-bairro="Zona Rural" data-area="5000" data-preco="850000">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=300&fit=crop" alt="Terreno 5">
+                            <span class="property-badge oportunidade">Oportunidade</span>
+                            <button class="favorite-btn" onclick="toggleFavorite(this)"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-type">Rural</div>
+                            <h3 class="property-title">Chácara Recanto das Águas</h3>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Zona Rural, Goiânia - GO</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 5.000m²</span>
+                                <span><i class="fas fa-water"></i> Nascente</span>
+                                <span><i class="fas fa-tree"></i> Árvores</span>
+                            </div>
+                            <div class="property-price">R$ 850.000</div>
+                            <div class="property-actions">
+                                <a href="#" class="btn-whatsapp" onclick="abrirWhatsApp('Chácara Recanto das Águas')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <button class="btn-details" onclick="abrirModalProperty(5)">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property 6 -->
+                    <div class="property-item" data-tipo="condominio" data-cidade="senador" data-bairro="Alphaville" data-area="1000" data-preco="1800000">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=400&h=300&fit=crop" alt="Terreno 6">
+                            <span class="property-badge destaque">Destaque</span>
+                            <button class="favorite-btn" onclick="toggleFavorite(this)"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-type">Condomínio</div>
+                            <h3 class="property-title">Condomínio Alphaville</h3>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Alphaville, Senador Canedo - GO</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 1.000m²</span>
+                                <span><i class="fas fa-vector-square"></i> 25x40m</span>
+                                <span><i class="fas fa-compass"></i> Norte/Sul</span>
+                            </div>
+                            <div class="property-price">R$ 1.800.000</div>
+                            <div class="property-actions">
+                                <a href="#" class="btn-whatsapp" onclick="abrirWhatsApp('Condomínio Alphaville')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <button class="btn-details" onclick="abrirModalProperty(6)">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property 7 -->
+                    <div class="property-item" data-tipo="residencial" data-cidade="goiania" data-bairro="Pedro Ludovico" data-area="500" data-preco="550000">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=400&h=300&fit=crop" alt="Terreno 7">
+                            <button class="favorite-btn" onclick="toggleFavorite(this)"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-type">Residencial</div>
+                            <h3 class="property-title">Loteamento Parque das Flores</h3>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Pedro Ludovico, Goiânia - GO</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 500m²</span>
+                                <span><i class="fas fa-vector-square"></i> 12.5x40m</span>
+                                <span><i class="fas fa-compass"></i> Norte/Sul</span>
+                            </div>
+                            <div class="property-price">R$ 550.000</div>
+                            <div class="property-actions">
+                                <a href="#" class="btn-whatsapp" onclick="abrirWhatsApp('Loteamento Parque das Flores')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <button class="btn-details" onclick="abrirModalProperty(7)">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property 8 -->
+                    <div class="property-item" data-tipo="comercial" data-cidade="goiania" data-bairro="Setor Marista" data-area="800" data-preco="1500000">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop" alt="Terreno 8">
+                            <span class="property-badge lancamento">Lançamento</span>
+                            <button class="favorite-btn" onclick="toggleFavorite(this)"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-type">Comercial</div>
+                            <h3 class="property-title">Terreno Empresarial</h3>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Setor Marista, Goiânia - GO</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 800m²</span>
+                                <span><i class="fas fa-vector-square"></i> 20x40m</span>
+                                <span><i class="fas fa-compass"></i> Leste/Oeste</span>
+                            </div>
+                            <div class="property-price">R$ 1.500.000</div>
+                            <div class="property-actions">
+                                <a href="#" class="btn-whatsapp" onclick="abrirWhatsApp('Terreno Empresarial')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <button class="btn-details" onclick="abrirModalProperty(8)">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property 9 -->
+                    <div class="property-item" data-tipo="residencial" data-cidade="goiania" data-bairro="Setor Jaó" data-area="600" data-preco="900000">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=400&h=300&fit=crop" alt="Terreno 9">
+                            <button class="favorite-btn" onclick="toggleFavorite(this)"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-type">Residencial</div>
+                            <h3 class="property-title">Loteamento Jardins</h3>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Setor Jaó, Goiânia - GO</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 600m²</span>
+                                <span><i class="fas fa-vector-square"></i> 15x40m</span>
+                                <span><i class="fas fa-compass"></i> Norte/Sul</span>
+                            </div>
+                            <div class="property-price">R$ 900.000</div>
+                            <div class="property-actions">
+                                <a href="#" class="btn-whatsapp" onclick="abrirWhatsApp('Loteamento Jardins')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <button class="btn-details" onclick="abrirModalProperty(9)">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property 10 -->
+                    <div class="property-item" data-tipo="residencial" data-cidade="aparecida" data-bairro="Parque das Nações" data-area="300" data-preco="250000">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&h=300&fit=crop" alt="Terreno 10">
+                            <span class="property-badge oportunidade">Oportunidade</span>
+                            <button class="favorite-btn" onclick="toggleFavorite(this)"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-type">Residencial</div>
+                            <h3 class="property-title">Loteamento Parque das Nações</h3>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Parque das Nações, Aparecida de Goiânia - GO</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 300m²</span>
+                                <span><i class="fas fa-vector-square"></i> 10x30m</span>
+                                <span><i class="fas fa-compass"></i> Leste/Oeste</span>
+                            </div>
+                            <div class="property-price">R$ 250.000</div>
+                            <div class="property-actions">
+                                <a href="#" class="btn-whatsapp" onclick="abrirWhatsApp('Loteamento Parque das Nações')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <button class="btn-details" onclick="abrirModalProperty(10)">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property 11 -->
+                    <div class="property-item" data-tipo="comercial" data-cidade="goiania" data-bairro="Setor Oeste" data-area="1200" data-preco="2500000">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop" alt="Terreno 11">
+                            <span class="property-badge destaque">Destaque</span>
+                            <button class="favorite-btn" onclick="toggleFavorite(this)"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-type">Comercial</div>
+                            <h3 class="property-title">Terreno Corporativo Oeste</h3>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Setor Oeste, Goiânia - GO</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 1.200m²</span>
+                                <span><i class="fas fa-vector-square"></i> 30x40m</span>
+                                <span><i class="fas fa-compass"></i> Norte/Sul</span>
+                            </div>
+                            <div class="property-price">R$ 2.500.000</div>
+                            <div class="property-actions">
+                                <a href="#" class="btn-whatsapp" onclick="abrirWhatsApp('Terreno Corporativo Oeste')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <button class="btn-details" onclick="abrirModalProperty(11)">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property 12 -->
+                    <div class="property-item" data-tipo="condominio" data-cidade="trindade" data-bairro="Residencial das Águas" data-area="1500" data-preco="950000">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=300&fit=crop" alt="Terreno 12">
+                            <span class="property-badge lancamento">Lançamento</span>
+                            <button class="favorite-btn" onclick="toggleFavorite(this)"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-type">Condomínio</div>
+                            <h3 class="property-title">Residencial das Águas</h3>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Residencial das Águas, Trindade - GO</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 1.500m²</span>
+                                <span><i class="fas fa-vector-square"></i> 30x50m</span>
+                                <span><i class="fas fa-compass"></i> Norte/Sul</span>
+                            </div>
+                            <div class="property-price">R$ 950.000</div>
+                            <div class="property-actions">
+                                <a href="#" class="btn-whatsapp" onclick="abrirWhatsApp('Residencial das Águas')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <button class="btn-details" onclick="abrirModalProperty(12)">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- Property Modal -->
+    <div class="modal" id="propertyModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-tree"></i></span>
+                        <span class="logo-text">Parra<span class="logo-highlight">Empreendimentos</span></span>
+                    </div>
+                    <p class="footer-description">Especialistas em terrenos exclusivos. Construa seu legado com quem entende do assunto.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="imoveis.html">Imóveis</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> (62) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@parraempreendimentos.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. T-4, 1234 - Setor Bueno, Goiânia - GO</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p>Receba novidades e oportunidades exclusivas.</p>
+                    <form class="newsletter-form" onsubmit="inscreverNewsletter(event)">
+                        <input type="email" placeholder="Seu e-mail" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Parra Empreendimentos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
